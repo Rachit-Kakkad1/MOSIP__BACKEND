@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify - OCR Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">🔍</div>
+            <span>OCR Pro</span>
+        </div>
+        <nav class="nav">
+            <a class="nav-button" href="index.html">Home</a>
+            <a class="nav-button" href="upload.html">Upload</a>
+            <a class="nav-button" href="preview.html">Preview</a>
+            <a class="nav-button primary" href="verify.html">Verify</a>
+            <a class="nav-button" href="audit.html">Audit</a>
+            <button class="theme-toggle">☀️</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="badge">Verification</div>
+        <h1 class="hero-title">Verify Extracted Fields<br><span class="gradient-text">and confirm accuracy</span></h1>
+        <p class="hero-subtitle">Compare extracted values to the source and mark corrections. Use the Verify button to finalize.</p>
+
+        <div class="features-grid" style="grid-template-columns: repeat(2,1fr);">
+            <div class="feature-card">
+                <h3 class="feature-title">Extracted Fields</h3>
+                <table style="width:100%;border-collapse:collapse;color:var(--color-text-secondary)">
+                    <tr><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">Name</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">John Doe</td></tr>
+                    <tr><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">DOB</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">1990-01-01</td></tr>
+                    <tr><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">ID</td><td style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">ABC12345</td></tr>
+                </table>
+                <div style="margin-top:12px;text-align:right"><button class="nav-button primary">Verify</button></div>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">Verification Notes</h3>
+                <div style="height:300px;background:var(--color-surface);border-radius:8px;padding:12px;overflow:auto;color:var(--color-text-secondary)">Use this area to record verification notes and fuzzy-match scores.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-tech">Built with <span>using React + FastAPI</span></div>
+            <div>🛡️ © 2025 OCR Pro</div>
+            <div>Edit with <a href="#" class="footer-link">Lovable</a></div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>

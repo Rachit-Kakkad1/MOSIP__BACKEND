@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview - OCR Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">🔍</div>
+            <span>OCR Pro</span>
+        </div>
+        <nav class="nav">
+            <a class="nav-button" href="index.html">Home</a>
+            <a class="nav-button" href="upload.html">Upload</a>
+            <a class="nav-button primary" href="preview.html">Preview</a>
+            <a class="nav-button" href="verify.html">Verify</a>
+            <a class="nav-button" href="audit.html">Audit</a>
+            <button class="theme-toggle">☀️</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="badge">Preview Extracted Text</div>
+        <h1 class="hero-title">Preview OCR Results<br><span class="gradient-text">and make corrections</span></h1>
+        <p class="hero-subtitle">Review the OCR output on the left and the document on the right. Click Verify when ready.</p>
+
+        <div class="features-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="feature-card">
+                <h3 class="feature-title">Document Preview</h3>
+                <div style="height:300px;background:var(--color-surface);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--color-text-secondary)">Document image preview</div>
+            </div>
+            <div class="feature-card">
+                <h3 class="feature-title">Extracted Text</h3>
+                <div style="height:300px;background:var(--color-surface);border-radius:8px;padding:12px;overflow:auto;color:var(--color-text-secondary)">No OCR content yet — this is a preview area where extracted text would appear.
+                </div>
+                <div style="margin-top:12px;text-align:right"><a class="nav-button primary" href="verify.html">Go to Verify</a></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-tech">Built with <span>using React + FastAPI</span></div>
+            <div>🛡️ © 2025 OCR Pro</div>
+            <div>Edit with <a href="#" class="footer-link">Lovable</a></div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>

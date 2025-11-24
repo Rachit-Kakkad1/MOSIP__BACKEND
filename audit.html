@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit - OCR Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">🔍</div>
+            <span>OCR Pro</span>
+        </div>
+        <nav class="nav">
+            <a class="nav-button" href="index.html">Home</a>
+            <a class="nav-button" href="upload.html">Upload</a>
+            <a class="nav-button" href="preview.html">Preview</a>
+            <a class="nav-button" href="verify.html">Verify</a>
+            <a class="nav-button primary" href="audit.html">Audit</a>
+            <button class="theme-toggle">☀️</button>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="badge">Audit Log</div>
+        <h1 class="hero-title">Audit and Change History<br><span class="gradient-text">track edits & verifications</span></h1>
+        <p class="hero-subtitle">View a chronological audit trail for document processing, verification, and user edits.</p>
+
+        <div class="features-grid" style="grid-template-columns: 1fr;">
+            <div class="feature-card">
+                <h3 class="feature-title">Recent Events</h3>
+                <ul style="list-style:none;padding:0;color:var(--color-text-secondary)">
+                    <li style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">[2025-11-20] Document uploaded — user: alice</li>
+                    <li style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">[2025-11-20] OCR run (TrOCR + Tesseract)</li>
+                    <li style="padding:8px;border-bottom:1px solid rgba(255,255,255,0.03)">[2025-11-21] Verified — user: bob</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-tech">Built with <span>using React + FastAPI</span></div>
+            <div>🛡️ © 2025 OCR Pro</div>
+            <div>Edit with <a href="#" class="footer-link">Lovable</a></div>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
