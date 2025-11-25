@@ -19,25 +19,31 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Copy requirements for better caching
-COPY requirements.txt .
+# Copy requirements first for Docker layer caching
+COPY requirements.txt /app/requirements.txt
 
-# Install pip & core dependencies
+# Upgrade pip
 RUN pip install --upgrade pip
 
-# Force correct NumPy version FIRST
+# Install NumPy FIRST (critical fix)
 RUN pip install numpy==1.24.4
 
-# Install all other packages EXCEPT numpy
+# Remove NumPy from requirements to prevent reinstall
 RUN sed '/numpy/d' requirements.txt > requirements_no_numpy.txt
+
+# Install all remaining dependencies
 RUN pip install --no-cache-dir -r requirements_no_numpy.txt
 
-# Copy the entire app
-COPY . .
+# Install spaCy model inside the image
+RUN python -m spacy download en_core_web_sm
 
-# Create necessary folders
+# Copy application code
+COPY . /app
+
+# Create runtime directories
 RUN mkdir -p /app/uploads /app/outputs /app/samples
 
 EXPOSE 8000
 
+# Start backend with uvicorn
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
