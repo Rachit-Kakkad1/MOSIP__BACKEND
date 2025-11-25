@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+venv/
+env/
+
+# Model caches / torch
+transformers/
+~/.cache/
+huggingface/
+
+# App folders
+uploads/
+outputs/
+samples/
+
+# Node / front-end
+node_modules/
+
+# System
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+.idea/
