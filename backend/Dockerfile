@@ -2,7 +2,6 @@ FROM python:3.10-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     tesseract-ocr \
@@ -19,31 +18,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Copy requirements first for Docker layer caching
 COPY requirements.txt /app/requirements.txt
 
-# Upgrade pip
 RUN pip install --upgrade pip
 
-# Install NumPy FIRST (critical fix)
+# Install numpy first
 RUN pip install numpy==1.24.4
 
-# Remove NumPy from requirements to prevent reinstall
-RUN sed '/numpy/d' requirements.txt > requirements_no_numpy.txt
+# Remove numpy from reqs
+RUN sed '/numpy/d' requirements.txt > reqs.txt
 
-# Install all remaining dependencies
-RUN pip install --no-cache-dir -r requirements_no_numpy.txt
+RUN pip install --no-cache-dir -r reqs.txt
 
-# Install spaCy model inside the image
-RUN python -m spacy download en_core_web_sm
+# Install spaCy model manually (no auto-download, no failures)
+RUN pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
 
-# Copy application code
 COPY . /app
 
-# Create runtime directories
 RUN mkdir -p /app/uploads /app/outputs /app/samples
 
 EXPOSE 8000
 
-# Start backend with uvicorn
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
