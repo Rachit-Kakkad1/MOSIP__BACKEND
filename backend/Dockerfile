@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system dependencies
+# system deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     tesseract-ocr \
@@ -19,18 +19,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Copy files first (for caching)
+# Copy requirements first for caching
 COPY requirements.txt /app/requirements.txt
 
-# FIX NUMPY COMPATIBILITY
-# Install numpy BEFORE opencv to ensure correct ABI
+# FIX: Install numpy BEFORE opencv
 RUN pip install --upgrade pip
 RUN pip install numpy==1.24.4
 
-# Install all remaining dependencies
+# Install the rest
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy full project
+# Now copy the application code
 COPY . /app
 
 # Create required folders
